@@ -1,0 +1,37 @@
+# 👉 Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# 👉 Virtual environment
+venv/
+.env/
+.venv/
+
+# 👉 Alembic
+alembic/versions/
+# Если не хочешь коммитить alembic.ini:
+# alembic.ini
+
+# 👉 VS Code
+.vscode/
+
+# 👉 OS/IDE мусор
+.DS_Store
+Thumbs.db
+
+# 👉 Логи и временные файлы
+*.log
+*.sqlite3
+*.db
+*.tmp
+
+# 👉 dotenv файлы
+.env
+.env.*
