@@ -3,6 +3,7 @@ from typing import Optional
 
 class UserCreate(BaseModel):
     email: EmailStr
+    name: str
     username: str
     password: str
 
@@ -13,6 +14,7 @@ class UserLogin(BaseModel):
 class UserResponse(BaseModel):
     id: int
     email: EmailStr
+    name: str
     username: str
     is_active: bool
 

@@ -1,2 +1,2 @@
-import db
-import user_deps
+from .db import *
+from .user_deps import *

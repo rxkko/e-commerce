@@ -24,6 +24,7 @@ async def login(user_data: UserLogin, response: Response, db: AsyncSession = Dep
     return UserResponse(
         id=user.id,
         email=user.email,
+        name=user.name,
         username=user.username,
         is_active=user.is_active
     )
