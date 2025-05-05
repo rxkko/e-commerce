@@ -15,7 +15,6 @@ class UserResponse(BaseModel):
     email: EmailStr
     username: str
     is_active: bool
-    is_admin: bool
 
     class Config:
         orm_mode = True
