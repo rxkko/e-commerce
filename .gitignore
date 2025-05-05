@@ -35,3 +35,5 @@ Thumbs.db
 # 👉 dotenv файлы
 .env
 .env.*
+
+.gitignore
