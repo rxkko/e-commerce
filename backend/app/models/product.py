@@ -13,3 +13,4 @@ class Product(Base):
     quantity = Column(Integer)
     category_id = Column(Integer, ForeignKey("categories.id"))
     category = relationship("Category")
+    image_url = Column(String)

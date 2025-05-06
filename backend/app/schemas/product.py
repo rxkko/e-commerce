@@ -16,7 +16,7 @@ class ProductResponse(BaseModel):
     price: Decimal
     quantity: int
     category_id: int
-    category_name: str
+    image_url: Optional[str] = None
 
     class Config:
         orm_mode = True

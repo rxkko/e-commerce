@@ -1,4 +1,4 @@
-from fastapi import HTTPException
+from fastapi import HTTPException, Response
 from sqlalchemy.future import select
 from sqlalchemy import or_
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -33,10 +33,14 @@ async def create_user(db: AsyncSession, user_data: UserCreate):
     await db.refresh(new_user)
     return new_user
 
-# async def get_user_by_login(db: AsyncSession, login: str):
-#     if "@" in login:
-#         result =  await db.execute(select(User).where(User.email == login))
-#     else:
-#         result = await db.execute(select(User).where(User.username == login))
-#     return result.scalars().first()
+async def delete_user(db: AsyncSession, user_id: int, response: Response):
+    result = await db.execute(select(User).where(User.id == user_id))
+    user = result.scalars().first()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    await db.delete(user)
+    await db.commit()
+    response.delete_cookie("access_token")
+    response.delete_cookie("refresh_token")
+    return {"detail": "User deleted successfully"}
 
